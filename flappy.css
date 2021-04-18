@@ -1,3 +1,7 @@
 body {
-    background: url(https://github.com/challenges-KW/flappy-bird-game/blob/main/images/background-1.png?raw=true);
+    background: url(https://github.com/challenges-KW/flappy-bird-game/blob/main/images/bg.png?raw=true);
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;  
 }
