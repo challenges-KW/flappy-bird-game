@@ -15,13 +15,13 @@ body {
 
 #obstacle {
     width: 75px;
-    height: 200px;
+    height: 250px;
     background: linear-gradient(0deg, #00396c  50%, rgba(122, 58, 58, 0) 33%), linear-gradient(0deg, #B34EB2 66%, #2B4162 66%);  
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
     position: relative;
-    left: 300px;
-    animation: obstacle 6s infinite linear;
+    left: 400px;
+    animation: obstacle 3s infinite linear;
 }
 
 @keyframes obstacle {
@@ -29,15 +29,17 @@ body {
     100%{left: -100px}
 }
 
+
 #obstacle2 {
     width: 75px;
-    height: 500px;
+    height: 150px;
     background: linear-gradient(0deg, #00396c  50%, rgba(122, 58, 58, 0) 33%), linear-gradient(0deg, #B34EB2 66%, #2B4162 66%);  
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     position: absolute;
-    left: 700px;
-    animation: obstacle 10s infinite linear;
+    bottom: 0px;
+    left: 400px;
+    animation: obstacle 3s infinite linear;
 }
 
 @keyframes obstacle2 {
@@ -45,11 +47,34 @@ body {
     100%{left: -100px}
 }
 
-#bird {
-    width: 20px;
-    height: 20px;
+#player {
+    left: 0%;
+    /* animation:fly 5s infinite; */
+
 }
 
-#bird-head {
+/* @keyframes fly{
+    0% {
+        left: 100%;
+        top: 5px;
+    }
+    25% {
+        top: 100px;
 
+    }
+    50% {
+        top: 80px;
+
+    }
+    75% {
+        top: 25px;
+    }
+    100% {
+        left: -120px;
+        top: 102px;
+    }
+} */
+
+.player1 {
+    position: relative;
 }
