@@ -7,4 +7,14 @@ let score = 0;
 let playerX = 10;
 let playerY = 100;
 
-document.addEventListener("keydown", jumpUp);
+document.addEventListener("DOMContentLoaded", () => {
+
+    let playerLeft = 300
+    let playerBottom = 0
+
+    function startGame() {
+        player.style.bottom = playerBottom + 'px'
+        player.style.left = playerLeft + 'px'
+    }
+    startGame()
+});
