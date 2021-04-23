@@ -18,8 +18,9 @@ document.addEventListener("DOMContentLoaded", () => {
     let timer = setInterval(startGame, 20)
 
     function jump() {
-        playerBottom += 50
+        if (playerBottom < 275) playerBottom += 50
         player.style.bottom = playerBottom + 'px'
+        console.log('this is player bottom: ', playerBottom)
     }
 
     document.addEventListener('keyup', jump)
