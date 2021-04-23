@@ -14,28 +14,23 @@ body {
 }
 
 .bg {
-    width: 100%;
-    height: 100%;
-    background: url(https://github.com/challenges-KW/flappy-bird-game/blob/main/images/bg.png?raw=true) repeat-x;
-    -webkit-animation: backgroundScroll 17s linear infinite;
+    position: absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+      background: url(https://github.com/challenges-KW/flappy-bird-game/blob/main/images/bg-scroll.png?raw=true) repeat-x;
+    -webkit-animation: backgroundScroll 400s linear infinite;
     animation: backgroundScroll 17s linear infinite;
   }
-  
-/* .bg2 {
-    width: 100%;  
-    height: 100%;  
-    background: url(file:///Users/katarzynakoch/bg-2.png) repeat-x;
-    -webkit-animation: backgroundScroll 22s linear infinite;
-    animation: backgroundScroll 22s linear infinite;  
-    } */
-    
+
     @-webkit-keyframes backgroundScroll {
         from {background-position: 0 0;}  
-        to {background-position: -800px 0;}  
+        to {background-position: -1100px 0;}  
         }
-        @keyframes backgroundScroll {
+    @keyframes backgroundScroll {
         from {background-position: 0 0;}  
-        to {background-position: -800px 0;}  
+        to {background-position: -1100px 0;}  
         }
         
 #obstacle {
