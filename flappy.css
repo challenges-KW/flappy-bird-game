@@ -21,7 +21,7 @@ body {
     right:0;
       background: url(https://github.com/challenges-KW/flappy-bird-game/blob/main/images/bg-scroll.png?raw=true) repeat-x;
     -webkit-animation: backgroundScroll 400s linear infinite;
-    animation: backgroundScroll 17s linear infinite;
+    animation: backgroundScroll 22s linear infinite;
   }
 
     @-webkit-keyframes backgroundScroll {
@@ -41,7 +41,7 @@ body {
     border-bottom-right-radius: 15px;
     position: relative;
     left: 400px;
-    animation: obstacle 3s infinite linear;
+    animation: obstacle 5s infinite linear;
 }
 
 @keyframes obstacle {
@@ -59,7 +59,7 @@ body {
     position: absolute;
     bottom: 0px;
     left: 400px;
-    animation: obstacle 3s infinite linear;
+    animation: obstacle 5s infinite linear;
 }
 
 @keyframes obstacle2 {
