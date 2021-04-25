@@ -2,13 +2,21 @@ body {
     display: flex
 }
 
-#bg {
+#container {
+    position: absolute;
+    width: 1300px;
+    height: 700px;
+    top: 0;
+    left: 0;
+}
+
+#bg-sky {
     position: absolute;
     top:0;
     bottom:0;
     left:0;
     right:0;
-    background: url(https://github.com/challenges-KW/flappy-bird-game/blob/main/images/bg-puffy.png?raw=true) repeat-x;
+    background: url(https://github.com/challenges-KW/flappy-bird-game/blob/main/images/bg-sky.png?raw=true) repeat-x;
     -webkit-animation: backgroundScroll 400s linear infinite;
     animation: backgroundScroll 22s linear infinite;
   }
@@ -21,7 +29,30 @@ body {
         from {background-position: 0 0;}  
         to {background-position: -1100px 0;}  
         }
+
+#bg-ground {
+    position: absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    top: 575px;
+    background: url(https://github.com/challenges-KW/flappy-bird-game/blob/main/images/bg-ground.png?raw=true) repeat-x;
+    -webkit-animation: backgroundScroll 400s linear infinite;
+    animation: backgroundScroll 22s linear infinite;
+    }
         
+    @-webkit-keyframes backgroundScroll {
+        from {background-position: 0 0;}  
+        to {background-position: -1100px 0;}  
+        }
+    @keyframes backgroundScroll {
+        from {background-position: 0 0;}  
+        to {background-position: -1100px 0;}  
+        }
+        
+
+
 .obstacle {
     width: 75px;
     height: 200px;
