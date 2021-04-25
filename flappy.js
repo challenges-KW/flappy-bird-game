@@ -48,18 +48,18 @@ document.addEventListener("DOMContentLoaded", () => {
                 clearInterval(obstacleTimer)
                 bg.removeChild(obstacle)
             }
-            if (playerBottom === -550) {
+            if (obstacleLeft == playerLeft || playerBottom === -550) {
                 gameOver()
             }
         }
         let obstacleTimer = setInterval(moveObstacle, 20)
-        setTimeout(generateObstacle, 6000)
+        if(!isGameOver) setTimeout(generateObstacle, 6000)
     }
     generateObstacle()
 
    function gameOver() {
        clearInterval(startGameTimer)
-       alert('start over, Puffy!')
+       console.log('start over, Puffy!')
        isGameOver = true
        document.removeEventListener('keyup', control)
    } 
