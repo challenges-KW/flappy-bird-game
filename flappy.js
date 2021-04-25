@@ -1,6 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
+    let container = document.getElementById("container")
     let player = document.getElementById("player")
-    let bg = document.getElementById("bg")
+    let sky = document.getElementById("bg-sky")
+    let ground = document.getElementById("bg-ground")
 
     let gravity = 2.5;
     let playerLeft = 300;
@@ -23,21 +25,21 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-
     function jump() {
-        if (playerBottom < 100) playerBottom += 50
+        if (playerBottom < 20) playerBottom += 50
         player.style.bottom = playerBottom + 'px'
         console.log('This is playerBottom: ', playerBottom)
     }
     document.addEventListener('keyup', control)
 
+
     function generateObstacle() {
         let obstacleLeft = 1300
-        let randomHeight = Math.random() * 50
+        let randomHeight = Math.random() * 70
         let obstacleBottom = randomHeight
         const obstacle = document.createElement('div')
         obstacle.classList.add('obstacle')
-        bg.appendChild(obstacle)
+        container.appendChild(obstacle)
         obstacle.style.left = obstacleLeft + 'px'
         obstacle.style.bottom = obstacleBottom + 'px'
 
@@ -47,11 +49,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (obstacleLeft === -75) {
                 clearInterval(obstacleTimer)
-                bg.removeChild(obstacle)
+                container.removeChild(obstacle)
             }
-            if (obstacleLeft === playerLeft || obstacleBottom === playerBottom || playerBottom === -550) {
-                gameOver()
-            }
+            // if (obstacleLeft === playerLeft || obstacleBottom === playerBottom || playerBottom === -550) {
+            //     gameOver()
+            
         }
         let obstacleTimer = setInterval(moveObstacle, 20)
         if(!isGameOver) setTimeout(generateObstacle, 6000)
@@ -60,14 +62,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
    function gameOver() {
        clearInterval(gravityTimer)
-       if (console.log('Sorry, Puffy! Start over?')) {
-           startGame()
-       }
-       else {console.log('ok bye')
        isGameOver = true
-       document.removeEventistener('keyup', control)
-    }
-
+       document.removeEventListener('keyup', control)
    } 
     
 
