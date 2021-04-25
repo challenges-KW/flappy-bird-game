@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let player = document.getElementById("player")
     let bg = document.getElementById("bg")
 
-    let gravity = 1.5;
+    let gravity = 2.5;
     let playerLeft = 300;
     let playerBottom = 50;
     let isGameOver = false;
@@ -13,8 +13,9 @@ document.addEventListener("DOMContentLoaded", () => {
         player.style.bottom = playerBottom + 'px'
         player.style.left = playerLeft + 'px'
     }
-    
-    let startGameTimer = setInterval(startGame, 20)
+
+//continous gravity on player
+    let gravityTimer = setInterval(startGame, 20)
 
     function control(e) {
         if (e.keyCode === 38) {
@@ -22,13 +23,13 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+
     function jump() {
-        if (playerBottom < 245) playerBottom += 50
+        if (playerBottom < 100) playerBottom += 50
         player.style.bottom = playerBottom + 'px'
         console.log('This is playerBottom: ', playerBottom)
     }
     document.addEventListener('keyup', control)
-
 
     function generateObstacle() {
         let obstacleLeft = 1300
@@ -48,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 clearInterval(obstacleTimer)
                 bg.removeChild(obstacle)
             }
-            if (obstacleLeft == playerLeft || playerBottom === -550) {
+            if (obstacleLeft === playerLeft || obstacleBottom === playerBottom || playerBottom === -550) {
                 gameOver()
             }
         }
@@ -58,10 +59,15 @@ document.addEventListener("DOMContentLoaded", () => {
     generateObstacle()
 
    function gameOver() {
-       clearInterval(startGameTimer)
-       console.log('start over, Puffy!')
+       clearInterval(gravityTimer)
+       if (console.log('Sorry, Puffy! Start over?')) {
+           startGame()
+       }
+       else {console.log('ok bye')
        isGameOver = true
-       document.removeEventListener('keyup', control)
+       document.removeEventistener('keyup', control)
+    }
+
    } 
     
 
