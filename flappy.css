@@ -8,7 +8,7 @@ body {
     bottom:0;
     left:0;
     right:0;
-    background: url(https://github.com/challenges-KW/flappy-bird-game/blob/main/images/bg-scroll.png?raw=true) repeat-x;
+    background: url(https://github.com/challenges-KW/flappy-bird-game/blob/main/images/bg-puffy.png?raw=true) repeat-x;
     -webkit-animation: backgroundScroll 400s linear infinite;
     animation: backgroundScroll 22s linear infinite;
   }
