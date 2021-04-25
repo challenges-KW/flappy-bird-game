@@ -51,8 +51,15 @@ document.addEventListener("DOMContentLoaded", () => {
                 clearInterval(obstacleTimer)
                 container.removeChild(obstacle)
             }
-            // if (obstacleLeft === playerLeft || obstacleBottom === playerBottom || playerBottom === -550) {
-            //     gameOver()
+            
+            if (
+                obstacleLeft === playerLeft ||
+                playerBottom === obstacleBottom || 
+                playerBottom === -425
+                ) {
+                console.log(obstacleLeft)
+                gameOver()
+            }
             
         }
         let obstacleTimer = setInterval(moveObstacle, 20)
@@ -63,6 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
    function gameOver() {
        clearInterval(gravityTimer)
        isGameOver = true
+       console.log('game over')
        document.removeEventListener('keyup', control)
    } 
     
