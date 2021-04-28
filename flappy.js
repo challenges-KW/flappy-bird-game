@@ -39,13 +39,20 @@ document.addEventListener("DOMContentLoaded", () => {
         let obstacleBottom = randomHeight
         const obstacle = document.createElement('div')
         obstacle.classList.add('obstacle')
+        const topObstacle = document.createElement('div')
+        topObstacle.classList.add('topObstacle')
         container.appendChild(obstacle)
+        container.appendChild(topObstacle)
+
         obstacle.style.left = obstacleLeft + 'px'
         obstacle.style.bottom = obstacleBottom + 'px'
+        topObstacle.style.left = obstacleLeft + 'px'
+        topObstacle.style.bottom = obstacleBottom + gap + 'px'
 
         function moveObstacle() {
             obstacleLeft -=2
             obstacle.style.left = obstacleLeft + 'px'
+            topObstacle.style.left = obstacleLeft + 'px'
 
             if (obstacleLeft === -75) {
                 clearInterval(obstacleTimer)
