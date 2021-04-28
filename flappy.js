@@ -56,15 +56,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (obstacleLeft === -75) {
                 clearInterval(obstacleTimer)
-                container.removeChild(obstacle)
             }
             
             if (
-                obstacleLeft === playerLeft ||
-                playerBottom === obstacleBottom || 
-                playerBottom === -425
+                !gap === playerLeft ||
+                playerBottom === !gap || 
+                playerBottom === -440
                 ) {
-                console.log(obstacleLeft)
                 gameOver()
             }
             
