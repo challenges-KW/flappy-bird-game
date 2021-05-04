@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let gravity = 2.5;
     let playerLeft = 300;
-    let playerBottom = 50;
+    let playerBottom = 0;
     let isGameOver = false;
     let gap = 475
 
@@ -26,9 +26,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function jump() {
-        if (playerBottom < 20) playerBottom += 50
+        if (playerBottom < 500) playerBottom += 50
         player.style.bottom = playerBottom + 'px'
-        console.log('This is playerBottom: ', playerBottom)
+        console.log('This is playerBottom and playerLeft: ', playerBottom, " , ", playerLeft)
+
     }
     document.addEventListener('keyup', control)
 
@@ -37,33 +38,33 @@ document.addEventListener("DOMContentLoaded", () => {
         let obstacleLeft = 1300
         let randomHeight = Math.random() * 70
         let obstacleBottom = randomHeight
+        console.log('obstacle bottom and obstacle left on generate: ', obstacleBottom, obstacleLeft)
         const obstacle = document.createElement('div')
-        obstacle.classList.add('obstacle')
-        const topObstacle = document.createElement('div')
-        topObstacle.classList.add('topObstacle')
+        if (!isGameOver) obstacle.classList.add('obstacle')
         container.appendChild(obstacle)
-        container.appendChild(topObstacle)
 
         obstacle.style.left = obstacleLeft + 'px'
         obstacle.style.bottom = obstacleBottom + 'px'
-        topObstacle.style.left = obstacleLeft + 'px'
-        topObstacle.style.bottom = obstacleBottom + gap + 'px'
 
         function moveObstacle() {
             obstacleLeft -=2
             obstacle.style.left = obstacleLeft + 'px'
-            topObstacle.style.left = obstacleLeft + 'px'
 
             if (obstacleLeft === -75) {
                 clearInterval(obstacleTimer)
+                container.removeChild(obstacle)
             }
             
             if (
-                !gap === playerLeft ||
-                playerBottom === !gap || 
+                obstacleLeft > 200 && obstacleLeft < 300 &&  playerLeft === 300 &&
+                (playerBottom < obstacleBottom + -295 ) ||
                 playerBottom === -440
                 ) {
+                    console.log('obstacle bottom and obstacle left: ', obstacleBottom, ' , ' , obstacleLeft)
+                    console.log('player bottom and player left :', playerBottom, playerLeft)
+             
                 gameOver()
+                clearInterval(obstacleTimer)
             }
             
         }
@@ -77,7 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
        isGameOver = true
        console.log('game over')
        document.removeEventListener('keyup', control)
-   } 
+   }
     
 
 });
