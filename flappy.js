@@ -1,14 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
     let container = document.getElementById("container")
     let player = document.getElementById("player")
-    let sky = document.getElementById("bg-sky")
-    let ground = document.getElementById("bg-ground")
 
     let gravity = 2.5;
     let playerLeft = 300;
     let playerBottom = 0;
     let isGameOver = false;
-    let gap = 475
+    let gap = 500
 
     function startGame() {
         playerBottom -= gravity
@@ -57,7 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
             
             if (
                 obstacleLeft > 200 && obstacleLeft < 300 &&  playerLeft === 300 &&
-                (playerBottom < obstacleBottom + -295 ) ||
+                (playerBottom < obstacleBottom + -290 ) ||
                 playerBottom === -440
                 ) {
                     console.log('obstacle bottom and obstacle left: ', obstacleBottom, ' , ' , obstacleLeft)
