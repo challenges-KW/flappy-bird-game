@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let playerLeft = 300;
     let playerBottom = 0;
     let isGameOver = false;
-    let gap = 500
+    let gap = 300
 
     function startGame() {
         playerBottom -= gravity
@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function jump() {
-        if (playerBottom < 500) playerBottom += 50
+        if (playerBottom < 0) playerBottom += 50
         player.style.bottom = playerBottom + 'px'
         console.log('This is playerBottom and playerLeft: ', playerBottom, " , ", playerLeft)
 
@@ -38,9 +38,13 @@ document.addEventListener("DOMContentLoaded", () => {
         let obstacleBottom = randomHeight
         console.log('obstacle bottom and obstacle left on generate: ', obstacleBottom, obstacleLeft)
         const obstacle = document.createElement('div')
-        if (!isGameOver) obstacle.classList.add('obstacle')
+        const topObstacle = document.createElement('div')
+        if (!isGameOver) {
+            obstacle.classList.add('obstacle')
+            topObstacle.classList.add('topObstacle')
+        }
         container.appendChild(obstacle)
-
+        container.appendChild(topObstacle)
         obstacle.style.left = obstacleLeft + 'px'
         obstacle.style.bottom = obstacleBottom + 'px'
 
