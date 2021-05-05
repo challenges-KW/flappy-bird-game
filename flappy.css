@@ -38,6 +38,7 @@ body {
     left:0;
     right:0;
     top: 525px;
+    z-index: +1;
     background: url(https://github.com/challenges-KW/flappy-bird-game/blob/main/images/bg-ground.png?raw=true) repeat-x;
     -webkit-animation: backgroundScroll 400s linear infinite;
     animation: backgroundScroll 22s linear infinite;
@@ -76,6 +77,10 @@ body {
     /* bottom: 0px;
     left: 400px;
     animation: obstacle 5s infinite linear; */
+}
+
+.overMsg {
+    background-image: url('');
 }
 
 /* @keyframes obstacle2 {

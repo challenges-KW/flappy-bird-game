@@ -8,6 +8,11 @@ document.addEventListener("DOMContentLoaded", () => {
     let isGameOver = false;
     let gap = 450
 
+    function startButton(e) {
+    
+    }
+
+
     function startGame() {
         playerBottom -= gravity
         player.style.bottom = playerBottom + 'px'
@@ -80,10 +85,18 @@ document.addEventListener("DOMContentLoaded", () => {
     generateObstacle()
 
    function gameOver() {
+       let overMsgLeft = 650
+       let overMsgBottom = 350
        clearInterval(gravityTimer)
        isGameOver = true
        console.log('game over')
+       const overMsg = document.createElement('div')
+       overMsg.classList.add('overMsg')
+       container.appendChild(overMsg)
+       overMsg.style.left = overMsgLeft + 'px'
+       overMsgBottom.style.left = overMsgBottom + 'px'
        document.removeEventListener('keyup', control)
+
    }
     
 
