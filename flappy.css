@@ -90,8 +90,6 @@ body {
     font-size: 1rem;
     border-radius: 16px;
     border: .5px solid #689eec;
-
-
 }
 
 .showStart {
@@ -101,32 +99,14 @@ body {
 
 #player {
     left: 0%;
-    /* animation:fly 5s infinite; */
-
+    position: relative;
 }
 
-/* @keyframes fly{
-    0% {
-        left: 100%;
-        top: 5px;
-    }
-    25% {
-        top: 100px;
+#player.playerShow {
+    opacity: 1;
+    transition: opacity .5s ease-in
+}
 
-    }
-    50% {
-        top: 80px;
-
-    }
-    75% {
-        top: 25px;
-    }
-    100% {
-        left: -120px;
-        top: 102px;
-    }
-} */
-
-.player1 {
-    position: relative;
+#player.playerDisappear {
+    opacity: 0;
 }
