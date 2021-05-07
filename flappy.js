@@ -8,10 +8,16 @@ document.addEventListener("DOMContentLoaded", () => {
     let isGameOver = false;
     let gap = 450
 
-    function startButton(e) {
-    
-    }
+    let startBtn = document.querySelector("#startBtn")
 
+    startBtn.addEventListener("click", function () {
+       if (isGameOver = true) {
+        starnBtn.classList.add("showStart")
+       }
+       else {
+           startBtn.classList.remove("showStart")
+       }
+    })
 
     function startGame() {
         playerBottom -= gravity
@@ -85,18 +91,10 @@ document.addEventListener("DOMContentLoaded", () => {
     generateObstacle()
 
    function gameOver() {
-       let overMsgLeft = 650
-       let overMsgBottom = 350
        clearInterval(gravityTimer)
        isGameOver = true
        console.log('game over')
-       const overMsg = document.createElement('div')
-       overMsg.classList.add('overMsg')
-       container.appendChild(overMsg)
-       overMsg.style.left = overMsgLeft + 'px'
-       overMsgBottom.style.left = overMsgBottom + 'px'
        document.removeEventListener('keyup', control)
-
    }
     
 

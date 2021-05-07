@@ -8,7 +8,7 @@ body {
     height: 625px;
     top: 0;
     left: 0;
-    overflow: hidden
+    overflow: hidden;
 }
 
 #bg-sky {
@@ -79,8 +79,14 @@ body {
     animation: obstacle 5s infinite linear; */
 }
 
-.overMsg {
-    background-image: url('');
+#startBtn {
+    position: absolute;
+
+}
+
+.showStart {
+    z-index: +1;
+    position: absolute;
 }
 
 /* @keyframes obstacle2 {
