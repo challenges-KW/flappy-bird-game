@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     let container = document.getElementById("container")
     let player = document.getElementById("player")
+    let bgSky = document.getElementById("bg-sky")
 
     let gravity = 2.5;
     let playerLeft = 300;
@@ -39,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
     
     
         function generateObstacle() {
-            let obstacleLeft = 1300
+            let obstacleLeft = 650
             let randomHeight = Math.random() * 70
             let obstacleBottom = randomHeight
             console.log('obstacle bottom and obstacle left on generate: ', obstacleBottom, obstacleLeft)
@@ -84,12 +85,21 @@ document.addEventListener("DOMContentLoaded", () => {
             if(!isGameOver) setTimeout(generateObstacle, 6000)
         }
         generateObstacle()
-    
+
+        function score() {
+            
+        }
+
        function gameOver() {
            clearInterval(gravityTimer)
            isGameOver = true
            console.log('game over')
+           player.classList.remove("playerShow")
+        //    player.classList.add("playerDisappear")   
            document.removeEventListener('keyup', control)
+           const gameOverMessage = document.createElement('div')
+           gameOverMessage.classList.add("over")
+           gameOverMessage.innerText = "Game over! Click here to try again!"
        }
     
     })

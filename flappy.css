@@ -4,7 +4,7 @@ body {
 
 #container {
     position: absolute;
-    width: 1300px;
+    width: 600px;
     height: 625px;
     top: 0;
     left: 0;
@@ -29,7 +29,7 @@ body {
     @keyframes backgroundScroll {
         from {background-position: 0 0;}  
         to {background-position: -1100px 0;}  
-        }
+    }
 
 #bg-ground {
     position: absolute;
@@ -109,4 +109,8 @@ body {
 
 #player.playerDisappear {
     opacity: 0;
+}
+
+.over {
+    z-index: +1;
 }
