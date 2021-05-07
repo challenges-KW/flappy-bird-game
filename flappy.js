@@ -11,91 +11,86 @@ document.addEventListener("DOMContentLoaded", () => {
     let startBtn = document.querySelector("#startBtn")
 
     startBtn.addEventListener("click", function () {
-       if (isGameOver = true) {
-        starnBtn.classList.add("showStart")
-       }
-       else {
-           startBtn.classList.remove("showStart")
-       }
-    })
-
-    function startGame() {
-        playerBottom -= gravity
-        player.style.bottom = playerBottom + 'px'
-        player.style.left = playerLeft + 'px'
-    }
-
-//continous gravity on player
-    let gravityTimer = setInterval(startGame, 20)
-
-    function control(e) {
-        if (e.keyCode === 38) {
-            jump()
+        let gravityTimer = setInterval(startGame, 20)
+        function startGame() {
+            playerBottom -= gravity
+            player.style.bottom = playerBottom + 'px'
+            player.style.left = playerLeft + 'px'
         }
-    }
-
-    function jump() {
-        if (playerBottom < 0) playerBottom += 50
-        player.style.bottom = playerBottom + 'px'
-        console.log('This is playerBottom and playerLeft: ', playerBottom, " , ", playerLeft)
-
-    }
-    document.addEventListener('keyup', control)
-
-
-    function generateObstacle() {
-        let obstacleLeft = 1300
-        let randomHeight = Math.random() * 70
-        let obstacleBottom = randomHeight
-        console.log('obstacle bottom and obstacle left on generate: ', obstacleBottom, obstacleLeft)
-        const obstacle = document.createElement('div')
-        const topObstacle = document.createElement('div')
-        if (!isGameOver) {
-            obstacle.classList.add('obstacle')
-            topObstacle.classList.add('topObstacle')
+    
+    //continous gravity on player
+    
+        function control(e) {
+            if (e.keyCode === 38) {
+                jump()
+            }
         }
-        container.appendChild(obstacle)
-        container.appendChild(topObstacle)
-        obstacle.style.left = obstacleLeft + 'px'
-        topObstacle.style.left = obstacleLeft + 'px'
-        obstacle.style.bottom = obstacleBottom + 'px'
-        topObstacle.style.bottom = obstacleBottom + gap + 'px'
-
-        function moveObstacle() {
-            obstacleLeft -=2
+    
+        function jump() {
+            if (playerBottom < 0) playerBottom += 50
+            player.style.bottom = playerBottom + 'px'
+            console.log('This is playerBottom and playerLeft: ', playerBottom, " , ", playerLeft)
+    
+        }
+        document.addEventListener('keyup', control)
+    
+    
+        function generateObstacle() {
+            let obstacleLeft = 1300
+            let randomHeight = Math.random() * 70
+            let obstacleBottom = randomHeight
+            console.log('obstacle bottom and obstacle left on generate: ', obstacleBottom, obstacleLeft)
+            const obstacle = document.createElement('div')
+            const topObstacle = document.createElement('div')
+            if (!isGameOver) {
+                obstacle.classList.add('obstacle')
+                topObstacle.classList.add('topObstacle')
+            }
+            container.appendChild(obstacle)
+            container.appendChild(topObstacle)
             obstacle.style.left = obstacleLeft + 'px'
             topObstacle.style.left = obstacleLeft + 'px'
-
-            if (obstacleLeft === -75) {
-                clearInterval(obstacleTimer)
-                container.removeChild(obstacle)
-                container.removeChild(topObstacle)
+            obstacle.style.bottom = obstacleBottom + 'px'
+            topObstacle.style.bottom = obstacleBottom + gap + 'px'
+    
+            function moveObstacle() {
+                obstacleLeft -=2
+                obstacle.style.left = obstacleLeft + 'px'
+                topObstacle.style.left = obstacleLeft + 'px'
+    
+                if (obstacleLeft === -75) {
+                    clearInterval(obstacleTimer)
+                    container.removeChild(obstacle)
+                    container.removeChild(topObstacle)
+                }
+                
+                if (
+                    obstacleLeft > 200 && obstacleLeft < 300 &&  playerLeft === 300 &&
+                    (playerBottom < obstacleBottom + -288 || playerBottom > obstacleBottom -140) ||
+                    playerBottom === -440
+                    ) {
+                        console.log('obstacle bottom and obstacle left: ', obstacleBottom, ' , ' , obstacleLeft)
+                        console.log('player bottom and player left :', playerBottom, playerLeft)
+                 
+                    gameOver()
+                    clearInterval(obstacleTimer)
+                }
+                
             }
-            
-            if (
-                obstacleLeft > 200 && obstacleLeft < 300 &&  playerLeft === 300 &&
-                (playerBottom < obstacleBottom + -288 || playerBottom > obstacleBottom -140) ||
-                playerBottom === -440
-                ) {
-                    console.log('obstacle bottom and obstacle left: ', obstacleBottom, ' , ' , obstacleLeft)
-                    console.log('player bottom and player left :', playerBottom, playerLeft)
-             
-                gameOver()
-                clearInterval(obstacleTimer)
-            }
-            
+            let obstacleTimer = setInterval(moveObstacle, 20)
+            if(!isGameOver) setTimeout(generateObstacle, 6000)
         }
-        let obstacleTimer = setInterval(moveObstacle, 20)
-        if(!isGameOver) setTimeout(generateObstacle, 6000)
-    }
-    generateObstacle()
+        generateObstacle()
+    
+       function gameOver() {
+           clearInterval(gravityTimer)
+           isGameOver = true
+           console.log('game over')
+           document.removeEventListener('keyup', control)
+       }
+    
+    })
 
-   function gameOver() {
-       clearInterval(gravityTimer)
-       isGameOver = true
-       console.log('game over')
-       document.removeEventListener('keyup', control)
-   }
     
 
 });
