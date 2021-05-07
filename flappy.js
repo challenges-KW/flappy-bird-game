@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let startBtn = document.querySelector("#startBtn")
 
     startBtn.addEventListener("click", function () {
+        startBtn.style.display = "none";
         let gravityTimer = setInterval(startGame, 20)
         function startGame() {
             playerBottom -= gravity

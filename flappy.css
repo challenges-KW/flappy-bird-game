@@ -81,6 +81,16 @@ body {
 
 #startBtn {
     position: absolute;
+    padding: 1em 1em;
+    background-color:fc94f8;
+    color: black;
+    cursor: pointer;
+    /* border: none; */
+    font-family: "Poppins", sans-serif;
+    font-size: 1rem;
+    border-radius: 16px;
+    border: .5px solid #689eec;
+
 
 }
 
@@ -88,11 +98,6 @@ body {
     z-index: +1;
     position: absolute;
 }
-
-/* @keyframes obstacle2 {
-    0%{left:1300px}
-    100%{left: -100px}
-} */
 
 #player {
     left: 0%;
