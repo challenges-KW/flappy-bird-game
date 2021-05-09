@@ -71,11 +71,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
                 
                 if (
-                    obstacleLeft > 200 && obstacleLeft < 300 &&  (playerLeft || playerRight === 300) &&
-                    (playerTop <= obstacleBottom || playerBottom <= obstacleBottom || 
-                    playerBottom >= obstacleBottom  || playerTop >= obstacleBottom )  ||
+                    obstacleLeft > 250 && obstacleLeft < 250 &&  playerLeft === 300 
+                    &&
+                    (
+                    playerBottom < obstacleBottom + 150 || 
+                    playerBottom > obstacleBottom + gap - 200 ||
                     playerBottom === -440
-                    ) {
+                    )) {
                         console.log('obstacle bottom and obstacle left: ', obstacleBottom, ' , ' , obstacleLeft)
                         console.log('player bottom and player left :', playerBottom, playerLeft)
                  
