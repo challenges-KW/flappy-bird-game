@@ -5,7 +5,7 @@ class Puffy {
         this.velocity = 0;
         this.width = 20;
         this.height = 20;
-        this.weight = 1;
+        this.weight = 0.005;
     }
     update(){
         let curve = Math.sin(angle) * 20;
