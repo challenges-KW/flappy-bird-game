@@ -1,33 +1,34 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const canvas = document.getElementById("canvas1");
-    const ctx = canvas.getContext('2d');
-    canvas.width = 550;
-    canvas.height = 500;
+const canvas = document.getElementById("canvas1");
+const ctx = canvas.getContext('2d');
+canvas.width = 550;
+canvas.height = 500;
 
-    let btnPressed = false;
-    let angle = 0;
-    let frame = 0;
-    let score = 0;
-    let gameSpeed = 2;
+let btnPressed = false;
+let angle = 0;
+let frame = 0;
+let score = 0;
+let gameSpeed = 2;
 
-    let temp = canvas.height - 90;
+function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    // ctx.fillRect(10, canvas.height - 90, 50, 50);
+    puffy.update();
+    puffy.draw();
+    requestAnimationFrame(animate);
+    angle+= 0.12;
+}
+animate();
 
-    function animate() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        ctx.fillRect(10, temp, 50, 50);
-        requestAnimationFrame(animate);
-    }
+window.addEventListener('keydown', function(e) {
+    if (e.code === 'ArrowUp') btnPressed = true;
+});
 
-    animate();
+window.addEventListener('keyup', function(e) {
+    if (e.code === 'ArrowUp') btnPressed = false;
+});
 
-    window.addEventListener('keydown', function(e) {
-        if (e.code === 'ArrowUp') btnPressed = true;
-        temp -= 20;
-    });
 
-    window.addEventListener('keyup', function(e) {
-        if (e.code === 'ArrowUp') btnPressed = false;
-    });
+// document.addEventListener("DOMContentLoaded", () => {
 
 
     // let container = document.getElementById("container")
@@ -141,6 +142,3 @@ document.addEventListener("DOMContentLoaded", () => {
     
     // })
 
-    
-
-});
