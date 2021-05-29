@@ -6,7 +6,7 @@ class Obstacle {
         this.bottom = (Math.random() * canvas.height/3) + 20;
         this.x = canvas.width;
         this.width = 20;
-        this.color = 'hsl(' + hue + '100%, 50%';
+        this.color = 'hsla(' + hue + ', 100%, 50%)';
     }
 
     draw(){
@@ -22,7 +22,7 @@ class Obstacle {
 
 function handleObstacles(){
     //every 50 frames
-    if (frame%100 === 0){
+    if (frame%150 === 0){
         obstaclesArray.unshift(new Obstacle);
     }
     for (let i = 0; i < obstaclesArray.length; i++){
