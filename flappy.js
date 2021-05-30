@@ -15,6 +15,7 @@ function animate() {
     // ctx.fillRect(10, canvas.height - 90, 50, 50);
     puffy.update();
     puffy.draw();
+    handleCollisions();
     handleObstacles();
     requestAnimationFrame(animate);
     angle+= 0.12;
@@ -29,6 +30,21 @@ window.addEventListener('keydown', function(e) {
 window.addEventListener('keyup', function(e) {
     if (e.code === 'ArrowUp') btnPressed = false;
 });
+
+const bang = new Image();
+bang.src = 'bang.png';
+function handleCollisions(){
+    for (let i = 0; i < obstaclesArray.length; i++){
+        if (puffy.x < obstaclesArray[i].x + obstaclesArray[i].width &&
+            puffy.x + puffy.width > obstaclesArray[i].x &&
+            ((puffy.y < 0 + obstaclesArray[i].top && puffy.y + puffy.height > 0) || 
+            (puffy.y > canvas.height - obstaclesArray[i].bottom &&
+            puffy.y + puffy.height < canvas.height))){
+                ctx.drawImage(bang, puffy.x, puffy.y, 50, 50);
+                return true
+            }
+    }
+}
 
 
 // document.addEventListener("DOMContentLoaded", () => {
