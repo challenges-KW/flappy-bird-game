@@ -35,7 +35,7 @@ function animate() {
     handleObstacles();
     puffy.update();
     puffy.draw();
-    ctx.fillStyle = 'aqua';
+    ctx.fillStyle = '#00396c';
     ctx.font = "90px Poppins";
     ctx.strokeText(score, 450, 80);
     ctx.fillText(score, 450, 80);
@@ -53,6 +53,7 @@ window.addEventListener('keydown', function(e) {
 
 window.addEventListener('keyup', function(e) {
     if (e.code === 'ArrowUp') btnPressed = false;
+    puffy.frameX = 0;
 });
 
 const collide = new Image();
@@ -66,7 +67,7 @@ function handleCollisions(){
             puffy.y + puffy.height < canvas.height))){
                 //collision occurs
                 ctx.drawImage(collide, puffy.x, puffy.y, 50, 50);
-                ctx.font = "25px Georgia";
+                ctx.font = "25px Poppins";
                 ctx.fillStyle = 'black';
                 ctx.fillText = ('Game Over, your score is ' + score, 160, canvas.height/2 - 10);
                 return true

@@ -1,5 +1,5 @@
 const puffySprite = new Image();
-puffySprite.src = 'tiny-puffy-1.gif';
+puffySprite.src = 'puffy.png';
 
 class Puffy {
     constructor() {
@@ -11,6 +11,7 @@ class Puffy {
         this.width = this.originalWidth/1.5;
         this.height = this.originalHeight/1.5;
         this.weight = 0.005;
+        this.frameX = 0;
     }
     update(){
         let curve = Math.sin(angle) * 20;
@@ -31,10 +32,12 @@ class Puffy {
     draw(){
         ctx.fillStyle = 'red';
         // ctx.fillRect(this.x, this.y, this.width, this.height);
-        ctx.drawImage(puffySprite, 0, 0, this.originalWidth, this.originalHeight, this.x - 20, this.y - 12, this.width, this.height);
+        ctx.drawImage(puffySprite, this.frameX * this.originalWidth, 0, this.originalWidth, this.originalHeight, this.x, this.y, this.width, this.height);
     }
     jump(){
         this.velocity -= 2;
+        if (this.frameX >= 3) this.frameX = 0;
+        else if (frame%3 === 0) this.frameX++;
     }
 }
 
