@@ -7,6 +7,7 @@ class Obstacle {
         this.x = canvas.width;
         this.width = 20;
         this.color = 'hsla(' + hue + ', 100%, 50%)';
+        this.counted = false;
     }
 
     draw(){
@@ -16,6 +17,10 @@ class Obstacle {
     }
     update(){
         this.x -= gameSpeed;
+        if (!this.counted && this.x < puffy.x){
+            score++;
+            this.counted = true;
+        }
         this.draw();
     }
 }

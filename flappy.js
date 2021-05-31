@@ -10,13 +10,37 @@ let score = 0;
 let hue = 0;
 let gameSpeed = 2;
 
+const background = new Image();
+background.src = "bg-puffy.png";
+const bg = {
+    x1: 0,
+    x2: canvas.width,
+    y: 0,
+    width: canvas.width,
+    height: canvas.height
+}
+function handleBackground(){
+    if (bg.x1 <= -bg.width + gameSpeed) bg.x1 = bg.width;
+    else bg.x1 -= gameSpeed;
+    if (bg.x2 <= -bg.width + gameSpeed) bg.x2 = bg.width;
+    else (bg.x2 -= gameSpeed);
+    ctx.drawImage(background, bg.x1, bg.y, bg.width, bg.height);
+    ctx.drawImage(background, bg.x2, bg.y, bg.width, bg.height);
+}
+
 function animate() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     // ctx.fillRect(10, canvas.height - 90, 50, 50);
+    handleBackground();
+    handleObstacles();
     puffy.update();
     puffy.draw();
+    ctx.fillStyle = 'red';
+    ctx.font = "90px Georgia";
+    ctx.strokeText(score, 450, 70);
+    ctx.fillText(score, 450, 70);
     handleCollisions();
-    handleObstacles();
+    if (handleCollisions()) return;
     requestAnimationFrame(animate);
     angle+= 0.12;
     frame++;
@@ -31,8 +55,8 @@ window.addEventListener('keyup', function(e) {
     if (e.code === 'ArrowUp') btnPressed = false;
 });
 
-const bang = new Image();
-bang.src = 'bang.png';
+const collide = new Image();
+collide.src = 'collide.png';
 function handleCollisions(){
     for (let i = 0; i < obstaclesArray.length; i++){
         if (puffy.x < obstaclesArray[i].x + obstaclesArray[i].width &&
@@ -40,7 +64,11 @@ function handleCollisions(){
             ((puffy.y < 0 + obstaclesArray[i].top && puffy.y + puffy.height > 0) || 
             (puffy.y > canvas.height - obstaclesArray[i].bottom &&
             puffy.y + puffy.height < canvas.height))){
-                ctx.drawImage(bang, puffy.x, puffy.y, 50, 50);
+                //collision occurs
+                ctx.drawImage(collide, puffy.x, puffy.y, 50, 50);
+                ctx.font = "25px Georgia";
+                ctx.fillStyle = 'black';
+                ctx.fillText = ('Game Over, your score is ' + score, 160, canvas.height/2 - 10);
                 return true
             }
     }
