@@ -35,10 +35,10 @@ function animate() {
     handleObstacles();
     puffy.update();
     puffy.draw();
-    ctx.fillStyle = 'red';
-    ctx.font = "90px Georgia";
-    ctx.strokeText(score, 450, 70);
-    ctx.fillText(score, 450, 70);
+    ctx.fillStyle = 'aqua';
+    ctx.font = "90px Poppins";
+    ctx.strokeText(score, 450, 80);
+    ctx.fillText(score, 450, 80);
     handleCollisions();
     if (handleCollisions()) return;
     requestAnimationFrame(animate);
