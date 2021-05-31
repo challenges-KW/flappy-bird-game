@@ -37,7 +37,7 @@ class Puffy {
     jump(){
         this.velocity -= 2;
         if (this.frameX >= 3) this.frameX = 0;
-        else if (frame%3 === 0) this.frameX++;
+        else if (frame%6 === 0) this.frameX++;
     }
 }
 
