@@ -63,7 +63,7 @@ function handleCollisions(){
         if (puffy.x < obstaclesArray[i].x + obstaclesArray[i].width &&
             puffy.x + puffy.width > obstaclesArray[i].x &&
             ((puffy.y < 0 + obstaclesArray[i].top && puffy.y + puffy.height > 0) || 
-            (puffy.y > canvas.height - obstaclesArray[i].bottom &&
+            (puffy.y > (canvas.height - (obstaclesArray[i].bottom + 50)) &&
             puffy.y + puffy.height < canvas.height))){
                 //collision occurs
                 ctx.drawImage(collide, puffy.x, puffy.y, 50, 50);

@@ -10,7 +10,7 @@ class Puffy {
         this.originalHeight = 94;
         this.width = this.originalWidth/1.5;
         this.height = this.originalHeight/1.5;
-        this.weight = 0.005;
+        this.weight = 0.003;
         this.frameX = 0;
     }
     update(){
@@ -30,7 +30,7 @@ class Puffy {
         if (btnPressed && this.y > this.height * 3) this.jump();
     }
     draw(){
-        ctx.fillStyle = 'red';
+        ctx.fillStyle = 'slateBlue';
         // ctx.fillRect(this.x, this.y, this.width, this.height);
         ctx.drawImage(puffySprite, this.frameX * this.originalWidth, 0, this.originalWidth, this.originalHeight, this.x, this.y, this.width, this.height);
     }
