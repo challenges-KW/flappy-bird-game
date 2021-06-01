@@ -17,6 +17,8 @@ class Obstacle {
         ctx.fillRect(this.x, 0, this.width, this.top);
         ctx.fillRect(this.x, canvas.height - this.bottom, this.width, this.bottom);
         ctx.strokeRect(this.x, 0, this.width, this.top);
+        ctx.strokeRect(this.x, canvas.height - this.bottom, this.width, this.bottom);
+
     }
     update(){
         this.x -= gameSpeed;
