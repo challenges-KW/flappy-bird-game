@@ -69,12 +69,13 @@ function handleCollisions(){
             ((puffy.y < 0 + obstaclesArray[i].top && puffy.y + puffy.height > 0) || 
             (puffy.y > (canvas.height - (obstaclesArray[i].bottom + 50)) &&
             puffy.y + puffy.height < canvas.height))){
-                //collision occurs
+                //collision occurs - end game
                 ctx.drawImage(collide, puffy.x, puffy.y, 50, 50);
                 ctx.font = '25px Bungee';
                 ctx.fillStyle = 'slateblue';
-                ctx.fillText('Game Over!', canvas.width/2 - 80, canvas.height/2 - 10);
-
+                ctx.fillText('Game Over!', canvas.width/2 - 80, canvas.height/2 - 30);
+                cancelAnimationFrame(animate)
+                menu.style.display = "flex";
                 return true;
             }
     }
