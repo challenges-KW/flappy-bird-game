@@ -3,17 +3,16 @@ const ctx = canvas.getContext('2d');
 canvas.width = 550;
 canvas.height = 500;
 
+
 let btnPressed = false;
 let angle = 0;
 let frame = 0;
 let score = 0;
 let hue = 0;
 let gameSpeed = 2;
-let restartButton = document.getElementById("restartButton");
+let startBtn = document.querySelector("#startBtn");
+let menu = document.querySelector("#menu");
 
-restartButton.addEventListener("click", (e) => {
-    console.log("restart")
-});
 
 
 const background = new Image();
@@ -45,14 +44,12 @@ function animate() {
     ctx.font = '90px "Bungee Shade"';
     ctx.strokeText(score, 450, 80);
     ctx.fillText(score, 450, 80);
-    gameStart();
     handleCollisions();
     if (handleCollisions()) return;
     requestAnimationFrame(animate);
     angle+= 0.12;
     frame++;
 }
-animate();
 
 window.addEventListener('keydown', function(e) {
     if (e.code === 'ArrowUp') btnPressed = true;
@@ -83,10 +80,7 @@ function handleCollisions(){
     }
 }
 
-function gameStart() {
-    ctx.save();
-}
-
-function gameRestart() {
-    ctx.restore();
-}
+startBtn.addEventListener("click", () => {
+    animate();
+    menu.style.display = "none";
+});
