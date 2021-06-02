@@ -3,7 +3,6 @@ const ctx = canvas.getContext('2d');
 canvas.width = 550;
 canvas.height = 500;
 
-
 let btnPressed = false;
 let angle = 0;
 let frame = 0;
@@ -12,8 +11,7 @@ let hue = 0;
 let gameSpeed = 2;
 let startBtn = document.querySelector("#startBtn");
 let menu = document.querySelector("#menu");
-
-
+let animationId;
 
 const background = new Image();
 background.src = "bg-puffy.png";
@@ -33,6 +31,14 @@ function handleBackground(){
     ctx.drawImage(background, bg.x2, bg.y, bg.width, bg.height);
 }
 
+
+function init() {
+    puffy = new Puffy();
+    obstaclesArray = [];
+    score = 0;
+}
+
+
 function animate() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     // ctx.fillRect(10, canvas.height - 90, 50, 50);
@@ -46,7 +52,7 @@ function animate() {
     ctx.fillText(score, 450, 80);
     handleCollisions();
     if (handleCollisions()) return;
-    requestAnimationFrame(animate);
+    animationId = requestAnimationFrame(animate);
     angle+= 0.12;
     frame++;
 }
@@ -74,7 +80,7 @@ function handleCollisions(){
                 ctx.font = '25px Bungee';
                 ctx.fillStyle = 'slateblue';
                 ctx.fillText('Game Over!', canvas.width/2 - 80, canvas.height/2 - 30);
-                cancelAnimationFrame(animate)
+                cancelAnimationFrame(animationId)
                 menu.style.display = "flex";
                 return true;
             }
@@ -82,6 +88,7 @@ function handleCollisions(){
 }
 
 startBtn.addEventListener("click", () => {
+    init();
     animate();
     menu.style.display = "none";
 });
