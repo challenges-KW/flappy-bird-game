@@ -11,6 +11,7 @@ let hue = 0;
 let gameSpeed = 2;
 let startBtn = document.querySelector("#startBtn");
 let menu = document.querySelector("#menu");
+let startScreen = document.querySelector("#startScreen")
 let animationId;
 
 const background = new Image();
@@ -36,7 +37,6 @@ function handleBackground(){
     ctx.drawImage(background, bg.x1, bg.y, bg.width, bg.height);
     ctx.drawImage(background, bg.x2, bg.y, bg.width, bg.height);
 }
-
 
 function init() {
     puffy = new Puffy();
@@ -103,6 +103,8 @@ function handleCollisions(){
 }
 
 startBtn.addEventListener("click", () => {
+    startScreen.style.display = "none";
+    canvas.style.display = "flex";
     // cancelAnimationFrame(startScreen)
     init();
     animate();
