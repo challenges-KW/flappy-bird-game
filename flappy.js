@@ -22,6 +22,12 @@ const bg = {
     width: canvas.width,
     height: canvas.height
 }
+
+// function startBg(){
+//     ctx.drawImage(background, bg.x1, bg.y, bg.width, bg.height);
+//     // ctx.drawImage(background, bg.x2, bg.y, bg.width, bg.height);
+// }
+
 function handleBackground(){
     if (bg.x1 <= -bg.width + gameSpeed) bg.x1 = bg.width;
     else bg.x1 -= gameSpeed;
@@ -39,17 +45,26 @@ function init() {
 }
 
 
+// function startScreen() {
+//     startBg();
+//     startAniId = requestAnimationFrame(startScreen);
+    // frame++;
+// }
+
+// window.onload = startScreen();
+
 function animate() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     // ctx.fillRect(10, canvas.height - 90, 50, 50);
+    // cancelAnimationFrame(startScreen)
     handleBackground();
     handleObstacles();
     puffy.update();
     puffy.draw();
     ctx.fillStyle = '#00396c';
     ctx.font = '90px "Bungee Shade"';
-    ctx.strokeText(score, 450, 80);
-    ctx.fillText(score, 450, 80);
+    ctx.strokeText(score, 400, 80);
+    ctx.fillText(score, 400, 80);
     handleCollisions();
     if (handleCollisions()) return;
     animationId = requestAnimationFrame(animate);
@@ -88,6 +103,7 @@ function handleCollisions(){
 }
 
 startBtn.addEventListener("click", () => {
+    // cancelAnimationFrame(startScreen)
     init();
     animate();
     menu.style.display = "none";
