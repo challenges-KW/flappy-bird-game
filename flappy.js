@@ -24,10 +24,6 @@ const bg = {
     height: canvas.height
 }
 
-// function startBg(){
-//     ctx.drawImage(background, bg.x1, bg.y, bg.width, bg.height);
-//     // ctx.drawImage(background, bg.x2, bg.y, bg.width, bg.height);
-// }
 
 function handleBackground(){
     if (bg.x1 <= -bg.width + gameSpeed) bg.x1 = bg.width;
@@ -44,19 +40,9 @@ function init() {
     score = 0;
 }
 
-
-// function startScreen() {
-//     startBg();
-//     startAniId = requestAnimationFrame(startScreen);
-    // frame++;
-// }
-
-// window.onload = startScreen();
-
 function animate() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     // ctx.fillRect(10, canvas.height - 90, 50, 50);
-    // cancelAnimationFrame(startScreen)
     handleBackground();
     handleObstacles();
     puffy.update();
@@ -105,7 +91,6 @@ function handleCollisions(){
 startBtn.addEventListener("click", () => {
     startScreen.style.display = "none";
     canvas.style.display = "flex";
-    // cancelAnimationFrame(startScreen)
     init();
     animate();
     menu.style.display = "none";
