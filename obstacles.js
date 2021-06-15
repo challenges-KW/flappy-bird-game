@@ -6,7 +6,7 @@ class Obstacle {
         this.bottom = (Math.random() * canvas.height/3) + 20;
         this.x = canvas.width;
         this.width = 20;
-        this.color = 'orchid';
+        this.color = 'mediumorchid';
         this.counted = false;
         this.border = 'papayawhip';
     }
