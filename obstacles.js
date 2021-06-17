@@ -8,7 +8,7 @@ class Obstacle {
         this.width = 20;
         this.color = 'mediumorchid';
         this.counted = false;
-        this.border = 'papayawhip';
+        this.border = 'peachpuff';
     }
 
     draw(){
