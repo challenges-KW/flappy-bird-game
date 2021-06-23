@@ -9,12 +9,16 @@
     <body>
         <div id="startScreen" style="font-family: Bungee; color:#71c1fa">'</div>
         <canvas id="canvas1" style="display: none" ></canvas>
-        <div class="fixed inset-0 flex items-center justify-center" id="menu">
-            <button class="bg-purple-700 text-white w-1/6 py-1 rounded-full" id="startBtn">Start Game</button>
+        <div class="fixed inset-0 flex items-center justify-center flex-grow: 1" id="menu">
+            <button class="bg-purple-700 text-white w-1/6 py-1 rounded-full text-lg" id="startBtn">
+                Start Game
+            </button>
         </div>
         <script src="puffy-cat.js"></script>
         <script src="obstacles.js"></script>
         <script src="flappy.js"></script>
-
+        <div class="explanation text-xs text-black uppercase font-semibold flex items-center justify-center p-3.5">
+            Use ▲ to jump
+        </div>
     </body>
 </html>
