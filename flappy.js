@@ -94,5 +94,5 @@ startBtn.addEventListener("click", () => {
     init();
     animate();
     menu.style.display = "none";
-    console.log("started game");
+    console.log("start game");
 });
