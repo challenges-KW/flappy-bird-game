@@ -96,3 +96,7 @@ startBtn.addEventListener("click", () => {
     menu.style.display = "none";
     console.log("start game");
 });
+
+saveScore = () => {
+    
+}
