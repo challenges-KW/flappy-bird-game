@@ -97,6 +97,6 @@ startBtn.addEventListener("click", () => {
     console.log("start game");
 });
 
-saveScore = () => {
+// saveScore = () => {
     
-}
+// }
