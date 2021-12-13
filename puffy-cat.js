@@ -10,7 +10,7 @@ class Puffy {
         this.originalHeight = 94;
         this.width = this.originalWidth/1.5;
         this.height = this.originalHeight/1.5;
-        this.weight = 0.035;
+        this.weight = 0.025;
         this.frameX = 0;
     }
     update(){

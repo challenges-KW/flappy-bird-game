@@ -70,12 +70,13 @@ window.addEventListener('keyup', function(e) {
 const collide = new Image();
 collide.src = 'collide.png';
 function handleCollisions(){
-    for (let i = 0; i < obstaclesArray.length; i++){
-        if (puffy.x < obstaclesArray[i].x + obstaclesArray[i].width &&
+    for (let i = 0; i < obstaclesArray.length; i++) {
+        if (
+            puffy.x < obstaclesArray[i].x + obstaclesArray[i].width &&
             puffy.x + puffy.width > obstaclesArray[i].x &&
-            ((puffy.y < 0 + obstaclesArray[i].top && puffy.y + puffy.height > 0) || 
-            (puffy.y > (canvas.height - (obstaclesArray[i].bottom + 50)) &&
-            puffy.y + puffy.height < canvas.height))){
+            ((puffy.y < -10 + obstaclesArray[i].top && puffy.y + puffy.height > 0) || 
+            (puffy.y > (canvas.height - (obstaclesArray[i].bottom + 60)) &&
+            puffy.y + puffy.height < canvas.height))) {
                 //collision occurs - end game
                 ctx.drawImage(collide, puffy.x, puffy.y, 50, 50);
                 ctx.font = '25px Bungee';
@@ -84,9 +85,9 @@ function handleCollisions(){
                 cancelAnimationFrame(animationId)
                 menu.style.display = "flex";
                 return true;
-            }
+        }
     }
-}
+};
 
 startBtn.addEventListener("click", () => {
     startScreen.style.display = "none";
