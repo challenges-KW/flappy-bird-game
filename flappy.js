@@ -57,8 +57,8 @@ function animate() {
     ctx.font = '20px "Arial"';
     ctx.fillText("Best", 30, 30);
     ctx.font = '50px "Bungee Shade"';
-    ctx.strokeText(best, 30, 80);
-    ctx.fillText(best, 30, 80);
+    ctx.strokeText(localStorage.getItem("best"), 30, 80);
+    ctx.fillText(localStorage.getItem("best"), 30, 80);
     handleCollisions();
     if (handleCollisions()) return;
     animationId = requestAnimationFrame(animate);
