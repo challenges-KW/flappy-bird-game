@@ -23,3 +23,17 @@
     height: 500px;
     border: 1px solid black;
 }
+
+form {
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+#startBtn {
+    cursor: pointer;
+}
+
+#scoreboard {
+    margin-top: 1rem;
+    display: none;
+}
