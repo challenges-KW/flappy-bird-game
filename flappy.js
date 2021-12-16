@@ -162,7 +162,7 @@ const getBestScore = (currentScore) => {
         }
     }
     console.log("best score: ", localStorage.getItem("best"))
-    ctx.strokeText(best, 30, 80)
-    ctx.fillText(best, 30, 80)
+    // ctx.strokeText(best, 30, 80)
+    // ctx.fillText(best, 30, 80)
 }
 
