@@ -57,8 +57,13 @@ function animate() {
     ctx.font = '20px "Arial"';
     ctx.fillText("Best", 30, 30);
     ctx.font = '50px "Bungee Shade"';
-    ctx.strokeText(localStorage.getItem("best"), 30, 80);
-    ctx.fillText(localStorage.getItem("best"), 30, 80);
+    if (localStorage.getItem("best") === null) {
+        ctx.strokeText(0, 30, 80);
+        ctx.fillText(0, 30, 80);
+    } else {
+        ctx.strokeText(localStorage.getItem("best"), 30, 80);
+        ctx.fillText(localStorage.getItem("best"), 30, 80);    
+    }
     handleCollisions();
     if (handleCollisions()) return;
     animationId = requestAnimationFrame(animate);
@@ -95,7 +100,7 @@ function handleCollisions(){
                 ctx.fillText('Game Over!', canvas.width/2 - 80, canvas.height/2 - 60);
                 cancelAnimationFrame(animationId)
                 menu.style.display = "flex";
-                scoresMenu.style.display = "block";
+                // scoresMenu.style.display = "block";
                 getBestScore(currentScore);
                 return true;
         }
