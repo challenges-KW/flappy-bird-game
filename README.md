@@ -21,7 +21,7 @@ Created in the style of Flappy Bird, Puffy Cat allows the user to play as Puffy 
 ![](/images/puffy-cat-screenshot.png)
 
 ### Links
-- Live Site URL: [Puffy Cat Game](https://katarzyna-kw.github.io/puffy-cat-game/)
+[Puffy Cat Game](https://katarzyna-kw.github.io/puffy-cat-game/)
 
 ## My process
 
