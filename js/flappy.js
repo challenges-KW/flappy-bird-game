@@ -15,7 +15,7 @@ let menu = document.querySelector("#menu");
 let scoresMenu = document.querySelector("#scoreboard")
 let startScreen = document.querySelector("#startScreen")
 let animationId;
-let username = prompt("Hello! Please enter your name.")
+// let username = prompt("Hello! Please enter your name.")
 
 const background = new Image();
 background.src = "game-img/bg-puffy.png";
@@ -93,7 +93,7 @@ function handleCollisions(){
                 //collision occurs - end game
                 let currentScore = { "current": score }
                 console.log("currentScore: ", currentScore)
-                console.log("name: ", username)
+                // console.log("name: ", username)
                 ctx.drawImage(collide, puffy.x, puffy.y, 50, 50);
                 ctx.font = '25px Bungee';
                 ctx.fillStyle = 'slateblue';
@@ -115,7 +115,7 @@ const startGame = () => {
     menu.style.display = "none";
     scoresMenu.display = "none";
     console.log("start game");
-    console.log("username:", username)
+    // console.log("username:", username)
 }
 
 startBtn.addEventListener("click", () => {
