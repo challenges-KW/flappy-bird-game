@@ -127,11 +127,6 @@ startBtn.addEventListener("click", () => {
     console.log("start game");
 });
 
-// let json = JSON.parse(str);
-// console.log('string', str);
-// console.log('json', json);
-
-
 // const getScore = async() => {
 //     return await fetch("./api/score")
 //     .then(response => {
