@@ -18,7 +18,7 @@ let animationId;
 let username = prompt("Hello! Please enter your name.")
 
 const background = new Image();
-background.src = "bg-puffy.png";
+background.src = "game-img/bg-puffy.png";
 const bg = {
     x1: 0,
     x2: canvas.width,
@@ -81,7 +81,7 @@ window.addEventListener('keyup', function(e) {
 });
 
 const collide = new Image();
-collide.src = 'collide.png';
+collide.src = 'game-img/collide.png';
 function handleCollisions(){
     for (let i = 0; i < obstaclesArray.length; i++) {
         if (
@@ -127,8 +127,15 @@ startBtn.addEventListener("click", () => {
     console.log("start game");
 });
 
+const 
+let json = JSON.parse(str);
+console.log('string', str);
+console.log('json', json);
+}
+
+
 // const getScore = async() => {
-//     return await fetch("http://localhost:3000/api/score")
+//     return await fetch("./api/score")
 //     .then(response => {
 //       console.log("response", response)
 //       return response.json()
@@ -140,15 +147,12 @@ startBtn.addEventListener("click", () => {
 
 const getBestScore = (currentScore) => {
     console.log("local/best at start of f: ", best)
-    // localStorage.clear();
-    // console.log("is clear? ", localStorage)
     if (best===null) {
         console.log("best is null")
         localStorage.setItem("best", currentScore.current)
         best = localStorage.getItem("best");
         console.log("best after set", best)
     } else {
-        // console.log("localStorage: ", localStorage)
         if (currentScore.current > best) {
             console.log("current is more than best so update")
             console.log("best before change", best)
@@ -162,7 +166,4 @@ const getBestScore = (currentScore) => {
         }
     }
     console.log("best score: ", localStorage.getItem("best"))
-    // ctx.strokeText(best, 30, 80)
-    // ctx.fillText(best, 30, 80)
 }
-

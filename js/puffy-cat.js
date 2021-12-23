@@ -1,5 +1,5 @@
 const puffySprite = new Image();
-puffySprite.src = 'puffy.png';
+puffySprite.src = 'game-img/puffy.png';
 
 class Puffy {
     constructor() {

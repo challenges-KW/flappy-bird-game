@@ -41,5 +41,4 @@ function handleObstacles(){
     if (obstaclesArray.length > 20){
         obstaclesArray.pop(obstaclesArray[0]);
     }
-
 }
