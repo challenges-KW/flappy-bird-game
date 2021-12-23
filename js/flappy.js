@@ -127,11 +127,9 @@ startBtn.addEventListener("click", () => {
     console.log("start game");
 });
 
-const 
-let json = JSON.parse(str);
-console.log('string', str);
-console.log('json', json);
-}
+// let json = JSON.parse(str);
+// console.log('string', str);
+// console.log('json', json);
 
 
 // const getScore = async() => {
